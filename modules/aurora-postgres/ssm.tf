@@ -15,7 +15,7 @@ module "parameter_store_write" {
     {
       name        = format("%s/%s", local.ssm_cluster_key_prefix, "database_port")
       value       = var.database_port
-      description = "Aurora Postgres database name"
+      description = "Aurora Postgres database port"
       type        = "String"
       overwrite   = true
     },
@@ -65,13 +65,6 @@ module "parameter_store_write" {
       name        = format("%s/%s", local.ssm_cluster_key_prefix, "cluster_id")
       value       = module.aurora_postgres_cluster.cluster_identifier
       description = "Aurora Postgres DB Cluster Identifier"
-      type        = "String"
-      overwrite   = true
-    },
-    {
-      name        = format("%s/%s", local.ssm_cluster_key_prefix, "db_port")
-      value       = var.database_port
-      description = "Aurora Postgres DB Master port"
       type        = "String"
       overwrite   = true
     }
